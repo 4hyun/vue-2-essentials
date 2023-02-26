@@ -6,8 +6,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Vue 2 Essentials",
-  tagline: "Guide to Maximizing Potential of Vue 2 for Enterprise Projects",
+  title: "Vue 2 Playbook",
+  tagline: "Essentials for Building Enterprise Vue 2 Frontend",
+  // "Resources and References for Creating Enterprise-Grade Vue 2 Frontend Applications",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -18,7 +19,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
+  organizationName: "argo-pacific-inc", // Usually your GitHub org/user name.
   projectName: "docusaurus", // Usually your repo name.
 
   onBrokenLinks: "throw",
@@ -28,8 +29,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "ko",
-    locales: ["ko", "en"],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
@@ -49,6 +50,22 @@ const config = {
     ],
   ],
 
+  themes: [
+    [
+      "@easyops-cn/docusaurus-search-local",
+      /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        // language: ["en", "zh"],
+        // ```
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -63,9 +80,9 @@ const config = {
         items: [
           {
             type: "doc",
+            label: "The Guide",
             docId: "architecture/architecture",
             position: "right",
-            label: "Architecture",
           },
           {
             href: "https://github.com/facebook/docusaurus",
@@ -78,11 +95,11 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Links",
             items: [
               {
-                label: "Tutorial",
-                to: "/docs/architecture",
+                label: "Architecture",
+                to: "docs/architecture/architecture",
               },
             ],
           },
@@ -120,6 +137,9 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+  plugins: [
+    // [require.resolve("@cmfcmf/docusaurus-search-local"), { language: "en" }],
+  ],
 }
 
 module.exports = config
