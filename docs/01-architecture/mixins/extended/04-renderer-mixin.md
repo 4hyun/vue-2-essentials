@@ -1,0 +1,3 @@
+---
+title: Renderer Mixin
+---
