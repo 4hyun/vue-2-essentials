@@ -1,0 +1,63 @@
+---
+title: <TableList />
+---
+
+### Summary
+
+
+
+### Props
+
+
+#### fields
+
+```js
+[
+  {
+    key: 'selected',
+    head: {},
+    thClass: 'text-left',
+    tdClass: 'text-left',
+    col: 5,
+    cell: {
+      mode: 'component',
+      // NOTE(fe): old syntax
+      type: TableCellComponentType.Checkbox
+    }
+  },
+  {
+    key: 'trainStatusCode::workflowNm::regUserNm:regDate',
+    label: $i18n.t('dlp.793.lbltraininfo'),
+    thClass: 'text-left',
+    tdClass: 'text-left',
+    cell: {
+      workflowNm: {
+        mode: 'component',
+        // NOTE(fe): new syntax, keep the component within the core component. Refer by string key(constants preferred)
+        type: 'link',
+        inject: () => {}
+      }
+    }
+  },
+  {
+    key: 'trainStatusCode',
+    label: $i18n.t('common.label.status'),
+    thClass: 'text-left',
+    tdClass: 'text-left',
+    head: {},
+    col: 15
+  },
+  {
+    key: 'actions',
+    label: 'Actions',
+    thClass: 'text-right',
+    tdClass: 'text-right',
+    col: 10
+    // cell: {
+    //   mode: 'component',
+    //   type: TableCellComponentType.ButtonToggleDetailRow
+    // }
+  }
+]
+
+```

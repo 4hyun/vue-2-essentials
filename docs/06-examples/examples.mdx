@@ -1,13 +1,27 @@
 # Examples
 
-> MLDL 3.0 에서 **Vue 2 Essentials** 가 제안하는 전략을 적용한 사례들 모음집입니다.
+> MLDL 3.0 에서 **Vue 2 Essentials** 에서 제안하는 전략을 적용한 사례들 모음집입니다.
 >
 > Library 관련 examples 들은 🔗[**Libraries**](/docs/categories/library) 하위의 해당 라이브러리 _상세_ 에서 찾아보실수 있습니다.
 
 ### Plugins
 
-- **`DialogExtensions`**
-- **`LabelWorks`**
+#### **`DialogExtensions`**
+  - **`showDialogV2()`**
+
+    :::danger
+    다수 listener/observer 지원 없음. <br/>
+    현재 버전은 동일한 event에 대한 listener 는 마지막으로 register되는 listener만 적용합니다.
+    :::
+
+#### **`LabelWorks`**
+  - **`LabelWorksManager`**
+  - **`connectLabelWorksRoot()`**
+
+### Components
+- **`TableList`**
+- **`TableInput`**
+- **`SearchFilters`**
 
 ### Mixins
 

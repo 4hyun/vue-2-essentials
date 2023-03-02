@@ -98,6 +98,14 @@ const config = {
                 label: "Architecture",
                 to: "docs/architecture/architecture",
               },
+              {
+                label: "Use Case - MLDL 3",
+                to: "docs/examples/examples",
+              },
+              {
+                label: "References",
+                to: "docs/references/references",
+              },
             ],
           },
           {
@@ -121,8 +129,12 @@ const config = {
             title: "More",
             items: [
               {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                label: "Author",
+                href: "https://github.com/4hyun",
+              },
+{
+                label: "Argo Pacific",
+                href: "https://argopacific.io",
               },
             ],
           },
@@ -130,11 +142,13 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Vue 2 Playbook. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      tableOfContents: { maxHeadingLevel: 5 }
     }),
   plugins: [
+
     // [require.resolve("@cmfcmf/docusaurus-search-local"), { language: "en" }],
   ],
 }
