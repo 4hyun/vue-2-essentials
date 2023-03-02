@@ -17,4 +17,5 @@
   - **`plugin-content-docs`**
     - [configuration](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#configuration)
     - [front matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter)
+    - [mdx playground](https://mdx-git-renovate-babel-monorepo-mdx.vercel.app/playground/)
 - [**`Mermaid`**](https://mermaid.js.org/)

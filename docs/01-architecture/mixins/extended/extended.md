@@ -20,3 +20,7 @@ sidebar_position: 1
 ### Utility Mixins (Helper)
 
 ### Plugin Mixins (Feature)
+
+한번에 complete design 을 해내는건 어려운 경우가 많습니다. <br/>
+
+Plugin Mixin 은 plugin 개발중, 연관성 있는 로직들을 mixin 으로 캡슐화 하는 intermidiary 로 사용을 제안합니다.

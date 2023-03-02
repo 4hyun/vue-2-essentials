@@ -1,4 +1,4 @@
 ---
-title: Style
+title: Proposals
 sidebar_position: 1
 ---

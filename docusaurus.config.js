@@ -7,7 +7,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Vue 2 Playbook",
-  tagline: "Essentials for Building Enterprise Vue 2 Frontend",
+  tagline:
+    "This guidebook aims to provide a comprehensive set of tools and strategies for developers working with Vue 2.",
+  // tagline: "Essentials for Building Enterprise Vue 2 Frontend",
   // "Resources and References for Creating Enterprise-Grade Vue 2 Frontend Applications",
   favicon: "img/favicon.ico",
 
@@ -72,7 +74,7 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "Vue 2 Essentials",
+        title: "Vue 2 Playbook",
         // logo: {},
         items: [
           {
@@ -132,7 +134,7 @@ const config = {
                 label: "Author",
                 href: "https://github.com/4hyun",
               },
-{
+              {
                 label: "Argo Pacific",
                 href: "https://argopacific.io",
               },
@@ -145,10 +147,9 @@ const config = {
         theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      tableOfContents: { maxHeadingLevel: 5 }
+      tableOfContents: { maxHeadingLevel: 5 },
     }),
   plugins: [
-
     // [require.resolve("@cmfcmf/docusaurus-search-local"), { language: "en" }],
   ],
 }

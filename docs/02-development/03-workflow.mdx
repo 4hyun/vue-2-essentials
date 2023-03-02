@@ -1,3 +1,20 @@
 ---
 title: workflow
 ---
+
+## Considerations
+
+먼저 고려 사항들을 정의해봅니다.
+
+- Code Quality
+- Reliability
+- Server Downtime
+- Conforming to APIs
+- Reducing compile time
+
+## Proposal
+
+- Frequent refactoring with small set of **hard**/**required** coding standards.
+- Writing **component tests** where it is necessary. Defining where it is necessary.
+- Using `msw`
+- Extracting redundant units of views into **components** and managing the group as **core**.
