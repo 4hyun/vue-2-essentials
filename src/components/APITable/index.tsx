@@ -5,9 +5,9 @@ import React, {
   isValidElement,
   useRef,
   useEffect,
-} from 'react';
-import {useHistory} from '@docusaurus/router';
+} from "react"
 import styles from './styles.module.css';
+import {useHistory} from '@docusaurus/router';
 
 interface Props {
   readonly children: ReactElement<ComponentProps<'table'>>;

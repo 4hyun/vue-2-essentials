@@ -2,62 +2,114 @@
 title: <TableList />
 ---
 
+import APITable from "@site/src/components/APITable"
+
 ### Summary
 
+### Slots
 
+<APITable>
+
+| Name              | Scoped     | Description                                                                                                 |
+| ----------------- | ---------- | ----------------------------------------------------------------------------------------------------------- |
+| `title`           | `string[]` | `perfect-scrollbar` 바로 상위의 slot.                                                                       |
+| `table-colgroup`  | `string[]` | **bootstrap-vue** 의 `b-table` 의 **table-colgroup** slot 과 동일. **`fields.col` prop 으로 값 설정 권장**. |
+| `head({key})`     | `string[]` | 필드 헤더를 사용자 정의 렌더링하기 위한 Scoped slot입니다. `{key}`는 `Field['key']` 입니다.                 |
+| `cell({key})`     | `string[]` | **bootstrap-vue** 의 `b-table` 의 **cell** slot 과 동일.                                                    |
+| `cell-col({key})` | `string[]` | NYC                                                                                                         |
+| `row-details`     | `string[]` | NYC                                                                                                         |
+| `detail-cell`     | `string[]` | NYC                                                                                                         |
+| `detail-cell-col` | `string[]` | NYC                                                                                                         |
+| `paging`          | `string[]` | NYC                                                                                                         |
+
+</APITable>
 
 ### Props
 
+<APITable>
+
+| Prop Name                   | Type               | Default | Description                                                                               |
+| --------------------------- | ------------------ | ------- | ----------------------------------------------------------------------------------------- |
+| `fields`                    | `Field[]`          | `[]`    | 향상된 `b-table`의 `field` prop.                                                          |
+| `items`                     | `Item<T>[]`        | `[]`    | row 로 render 될 items.                                                                   |
+| `detailFields`              | `DetailField[]`    | `[]`    | **boostrap-vue** `b-table` 에서의 `row-details` slot 도 `fields` 처럼 제어 허용하는 속성. |
+| `wrapper`                   | `WrapperConfig`    | `{}`    | wrapper component 의 옵션.                                                                |
+| `static-class`              | `string, string[]` | `[]`    | wrapper component 로 전달되는 class.                                                      |
+| `table-scroll-static-class` | `string, string[]` | `{}`    | `perfect-scrollbar` 으로 전달되는 class.                                                  |
+| `paging-static-class`       | `string, string[]` | `{}`    | `page-navigation` 으로 전달되는 class.                                                    |
+
+</APITable>
+
+### Types
+
+#### `Field`
+
+```ts
+type Field = {}
+```
+
+#### `DetailField`
+
+```ts
+type DetailField = {}
+```
+
+#### `WrapperConfig`
+
+```ts
+type WrapperConfig = { tag?: string; staticClass?: string | string[] }
+```
+
+### Examples
 
 #### fields
 
-```js
+```json
 [
   {
-    key: 'selected',
+    key: "selected",
     head: {},
-    thClass: 'text-left',
-    tdClass: 'text-left',
+    thClass: "text-left",
+    tdClass: "text-left",
     col: 5,
     cell: {
-      mode: 'component',
+      mode: "component",
       // NOTE(fe): old syntax
-      type: TableCellComponentType.Checkbox
-    }
+      type: TableCellComponentType.Checkbox,
+    },
   },
   {
-    key: 'trainStatusCode::workflowNm::regUserNm:regDate',
-    label: $i18n.t('dlp.793.lbltraininfo'),
-    thClass: 'text-left',
-    tdClass: 'text-left',
+    key: "trainStatusCode::workflowNm::regUserNm:regDate",
+    label: $i18n.t("dlp.793.lbltraininfo"),
+    thClass: "text-left",
+    tdClass: "text-left",
     cell: {
       workflowNm: {
-        mode: 'component',
+        mode: "component",
         // NOTE(fe): new syntax, keep the component within the core component. Refer by string key(constants preferred)
-        type: 'link',
-        inject: () => {}
-      }
-    }
+        type: "link",
+        inject: () => {},
+      },
+    },
   },
   {
-    key: 'trainStatusCode',
-    label: $i18n.t('common.label.status'),
-    thClass: 'text-left',
-    tdClass: 'text-left',
+    key: "trainStatusCode",
+    label: $i18n.t("common.label.status"),
+    thClass: "text-left",
+    tdClass: "text-left",
     head: {},
-    col: 15
+    col: 15,
   },
   {
-    key: 'actions',
-    label: 'Actions',
-    thClass: 'text-right',
-    tdClass: 'text-right',
-    col: 10
+    key: "actions",
+    label: "Actions",
+    thClass: "text-right",
+    tdClass: "text-right",
+    col: 10,
     // cell: {
     //   mode: 'component',
     //   type: TableCellComponentType.ButtonToggleDetailRow
     // }
-  }
+  },
 ]
-
 ```
