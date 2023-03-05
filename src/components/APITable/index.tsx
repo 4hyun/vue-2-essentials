@@ -38,13 +38,13 @@ function APITableRow(
     <tr
       id={id}
       tabIndex={0}
-      ref={history.location.hash === anchor ? ref : undefined}
+      ref={history?.location.hash === anchor ? ref : undefined}
       onClick={() => {
-        history.push(anchor);
+        history?.push(anchor);
       }}
       onKeyDown={(e: React.KeyboardEvent) => {
         if (e.key === 'Enter') {
-          history.push(anchor);
+          history?.push(anchor);
         }
       }}>
       {children.props.children}
@@ -76,6 +76,8 @@ export default function APITable({children, name}: Props): JSX.Element {
       </APITableRowComp>
     ),
   );
+  
+  console.log({styles})
 
   return (
     <table className={styles.apiTable}>
