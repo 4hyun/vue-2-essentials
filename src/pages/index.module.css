@@ -26,3 +26,9 @@
 .buttons > :not(:first-child) {
   margin-left: 1rem;
 }
+
+[data-theme="dark"] {
+  .heroBanner {
+    background-color: transparent;
+  }
+}
