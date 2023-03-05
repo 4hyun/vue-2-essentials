@@ -84,7 +84,7 @@ const config = {
             position: "right",
           },
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/4hyun/vue-2-essentials",
             label: "GitHub",
             position: "right",
           },
@@ -141,7 +141,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Vue 2 Playbook. Built with Docusaurus.`,
+        copyright: `Built with Docusaurus👍✨`,
       },
       prism: {
         theme: darkCodeTheme,
