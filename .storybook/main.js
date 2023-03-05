@@ -3,11 +3,6 @@ const path = require("path")
 
 module.exports = {
   webpackFinal: async (config, { configType }) => {
-    // config.resolve.fallback = {
-    //   ...(config.resolve.fallback || []),
-    //   stream: require.resolve("stream-browserify"),
-    // // }
-    // config.resolve.alias["@"] = path.resolve(__dirname, "../src")
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),
       new TsconfigPathsPlugin({ extensions: config.resolve.extensions }),

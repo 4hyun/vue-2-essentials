@@ -6,6 +6,39 @@ import APITable from "@site/src/components/APITable"
 
 ### Summary
 
+TableList 컴포넌트는 wrapper `perfect-scrollbar`, `b-table`, `page-navigation` 으로 구성.
+
+#### 추가된 기능
+
+- `key` - **delimiter** 사용하여 data 만으로 cell 내부 row, column render 할수있음.
+  > column delimiter - `::` <br/>
+  > row delimiter - `:`
+  > 별도의 slot 구현 필요없이 기존의 `fields` prop 만으로 cell 에 레이아웃을 적용할수있음.
+
+**Example #1**
+
+> `trainStatusCode`, `workflowNm`, `regUserNm` 은 각 하나의 column 으로 row #1 을 구성함. <br/>
+> row #2 에는 `regDate` 가 render 됨.
+
+```js title=./constants/list-fields.js
+const fields = [
+  {
+    key: "trainStatusCode::workflowNm::regUserNm:regDate",
+    label: $i18n.t("dlp.793.lbltraininfo"),
+    thClass: "text-left",
+    tdClass: "text-left",
+    cell: {
+      workflowNm: {
+        mode: "component",
+        type: "link",
+        inject: () => {},
+      },
+    },
+  },
+  // ...
+]
+```
+
 ### Slots
 
 <APITable>
@@ -113,3 +146,9 @@ type WrapperConfig = { tag?: string; staticClass?: string | string[] }
   },
 ]
 ```
+
+### Assessment Backlog
+
+- `b-table`의 `items` prop provider function 사용. `b-table`의 paging props 들을 사용.
+  - `currentPage` : `PagingMixin.page`
+  - `perPage` : `PagingMixin.sortNum`

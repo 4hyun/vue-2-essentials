@@ -8,6 +8,6 @@ export default {
 
 export const Primary: ComponentStory<typeof APITable> = () => (
   <APITable>
-    <th></th>
+    
   </APITable>
 )
