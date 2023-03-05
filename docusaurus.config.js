@@ -11,7 +11,7 @@ const config = {
     "This guidebook aims to provide a comprehensive set of tools and strategies for developers working with Vue 2.",
   // tagline: "Essentials for Building Enterprise Vue 2 Frontend",
   // "Resources and References for Creating Enterprise-Grade Vue 2 Frontend Applications",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon-argo-32x32.png",
 
   // Set the production url of your site here
   url: "https://your-docusaurus-test-site.com",
