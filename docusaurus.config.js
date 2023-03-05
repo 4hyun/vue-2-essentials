@@ -6,9 +6,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula")
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Vue 2 Playbook",
+  title: "Vue 2 Playbook - Bootstrap Edition",
   tagline:
-    "This guidebook aims to provide a comprehensive set of tools and strategies for developers working with Vue 2.",
+    "Comprehensive set of tools and strategies for developers working with Vue 2 & Bootstrap Vue.",
   // tagline: "Essentials for Building Enterprise Vue 2 Frontend",
   // "Resources and References for Creating Enterprise-Grade Vue 2 Frontend Applications",
   favicon: "img/favicon-argo-32x32.png",
