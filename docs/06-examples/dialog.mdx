@@ -1,3 +1,44 @@
 ---
 title: <Dialog />
 ---
+
+import APITable from "@site/src/components/APITable"
+
+### 요약
+
+### Interface
+
+#### `show(...args)`
+
+### Mixins
+
+#### `connectDialogRootMixin`
+
+#### `?eventEmitterMixin`
+
+#### `?portalViewMixin`
+
+Dialog 를 portal 로 wrapping 할수 있는 기능을 제공합니다. `portal` 로 wrapping 시 `portal-vue` 설정에
+따라 `portal-target` 으로 portal rendering을 할수있습니다.
+
+### Props
+
+- `fields`
+- `fieldValues`
+- `fieldOptions`
+
+### 추가된 기능
+
+### Slots
+
+<APITable>
+
+| Name    | Scoped     | Description                           |
+| ------- | ---------- | ------------------------------------- |
+| `title` | `string[]` | `perfect-scrollbar` 바로 상위의 slot. |
+
+</APITable>
+
+### Types
+
+### Maintainers 노트

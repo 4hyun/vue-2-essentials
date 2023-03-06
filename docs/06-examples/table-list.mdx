@@ -4,7 +4,7 @@ title: <TableList />
 
 import APITable from "@site/src/components/APITable"
 
-### Summary
+### 요약
 
 TableList 컴포넌트는 wrapper `perfect-scrollbar`, `b-table`, `page-navigation` 으로 구성.
 
@@ -78,7 +78,14 @@ const fields = [
 #### `Field`
 
 ```ts
-type Field = {}
+interface Field {
+  key: string
+  head: Record<string, any>
+  thClass: "text-left" | "text-right" | "text-center"
+  tdClass: "text-left" | "text-right" | "text-center"
+  col: number | string
+  cell?: { mode: "component"; type: "Checkbox" }
+}
 ```
 
 #### `DetailField`
@@ -152,3 +159,5 @@ type WrapperConfig = { tag?: string; staticClass?: string | string[] }
 - `b-table`의 `items` prop provider function 사용. `b-table`의 paging props 들을 사용.
   - `currentPage` : `PagingMixin.page`
   - `perPage` : `PagingMixin.sortNum`
+
+### Maintainers 노트
