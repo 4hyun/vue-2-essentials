@@ -6,11 +6,15 @@ import APITable from "@site/src/components/APITable"
 
 ## Background
 
-> 여기서 **Poup,Dialog 호출** 은 b-modal show 하는것을 의미합니다.
+>
 
-동일한 Popup 컴포넌트가 여러군데 등록되는 경우가 늘어났습니다.<br/>
-어플리케이션 전체에 3개 이상으로 등록되는 상황들이 늘어났습니다.<br/>
-계기는 다음과 같습니다:
+:::note
+**Poup, Dialog 호출** 은 b-modal show 하는것을 의미합니다.
+:::
+
+> 동일한 Popup 컴포넌트가 여러군데 등록되는 경우가 늘어났습니다.<br/>
+> 어플리케이션 전체에 3개 이상으로 등록되는 상황들이 늘어났습니다.<br/>
+> 계기는 다음과 같습니다:
 
 - 1 유형의 Popup을 여러곳에서 호출 하는 요구사항.
 
@@ -31,10 +35,11 @@ vscode 로 symbol 검색을 가능하게 하는 개발 패턴을 지향한는 �
 
 <br />
 
-해결 제안인 `showDialogV2`는 다음을 수행합니다:
+해결 제안인 `dialog-extensions` plugin 기능으로 제공되는 `showDialogV2` method 는 다음을 수행합니다:
 
-- 1 Dialog 를 1 곳만 등록할수있고(예: Application Root, Application Shell(eg. LayoutComponent))
-  - event 관리는 Dialog component 의 custom option 로 등록해서 관리하게끔 하며.
+- 1 Dialog 대 1 등록을 **기본**으로 하며(예: Application Root, Application Shell(eg. LayoutComponent))
+  - event 관리는 Dialog component 의 custom option 로 등록해서 관리하게하여 vscode symbol 검색에도 표시 가능.
+- `$on|$onChange|$onEvery`로 1 Dialog 호출 진입점에서 모든 event & watcher 관리
 
 :::danger 사용시 주의사항입니다 (현재로서)
 단점을 보안하고자 한 이유만큼, **showDialogV2 를 적용하는 코드는 1 ContainerComponent\<T\>에서 반듯이 한지점/1 method** 로 통일되어야 합니다.
@@ -93,4 +98,8 @@ Dialog 를 portal 로 wrapping 할수 있는 기능을 제공합니다. `portal`
 
 ### Types
 
-### Maintainers 노트
+### ✏️ Backlog
+
+🟩 Decide whether to use naming **Emit** or **Event** in the context for `eventEmitterMixin`. (currently using **emit** but referring to **events** in docs could be confusing.)
+
+🟩 Consider adding `eventEmitter_pushEvent` as global prototype with simpler name for improved DX and brevity.
