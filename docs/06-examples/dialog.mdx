@@ -4,7 +4,55 @@ title: <Dialog />
 
 import APITable from "@site/src/components/APITable"
 
-### 요약
+## Background
+
+> 여기서 **Poup,Dialog 호출** 은 b-modal show 하는것을 의미합니다.
+
+동일한 Popup 컴포넌트가 여러군데 등록되는 경우가 늘어났습니다.<br/>
+어플리케이션 전체에 3개 이상으로 등록되는 상황들이 늘어났습니다.<br/>
+계기는 다음과 같습니다:
+
+- 1 유형의 Popup을 여러곳에서 호출 하는 요구사항.
+
+장점들을 나열해봤습니다.
+
+- 어플리케이션의 **어느 계층에서든 depth 에대하여 고민없이** container유형의 컴포넌트에 Popup을 등록하고, 자식(예: ListItemComponent\<T\>)들의 event 와 popup 의 호출로직을 바인딩 할수 있음.
+
+그리고 개발이 진행되면서 단점들을 발견했습니다.
+
+- Popup 을 호출하는 지점의 **n** 마다 다음 작업을 반복해야 했습니다.
+  1. Popup 컴포넌트를 호출하는 부모 컴포넌트에 재등록
+  2. 부모 컴포넌트에 중복되는 markup( `ref`, `componentId` )를 등록.
+  3. 이로인해 vscode 의 symbol 로 검색 안돼게 되는 불편함.
+
+:::tip
+vscode 로 symbol 검색을 가능하게 하는 개발 패턴을 지향한는 것을 프로젝트 개발 표준으로 제안합니다.
+:::
+
+<br />
+
+해결 제안인 `showDialogV2`는 다음을 수행합니다:
+
+- 1 Dialog 를 1 곳만 등록할수있고(예: Application Root, Application Shell(eg. LayoutComponent))
+  - event 관리는 Dialog component 의 custom option 로 등록해서 관리하게끔 하며.
+
+:::danger 사용시 주의사항입니다 (현재로서)
+단점을 보안하고자 한 이유만큼, **showDialogV2 를 적용하는 코드는 1 ContainerComponent\<T\>에서 반듯이 한지점/1 method** 로 통일되어야 합니다.
+예를들어 **ProjectProcess 에서 전역으로 등록된 ModelVersionListDialog 를 호출** 하는 요구사항이 있다면, 구현 방법은 다음과 같습니다:
+
+1. ProjectProcess 에서 `showModelVersionListDialog` method 를 추가합니다.
+2. `showModelVersionListDialog` 에 `this.$mldl.showDialogV2(<Args>)` 로 ModelVersionListDialog 호출 로직을 구현합니다.
+3. 필요시 `$on|$onChange|$onEvery` 로 chain 하여 ModelVersionListDialog 가 emit 하는 event 에 handler 를 추가합니다.
+4. ProjectProcess 에서 다른 event 들도 ModelVersionListDialog 를 호출해야할시에도 고유 진입점 `showModelVersionListDialog`로 통일합니다.
+5. `showModelVersionListDialog` 를 다른 로직으로 분기해야한다면 `showModelVersionListDialogFor{Reason|Subject}`과 같은 method를 추가하고 로직을 위임합니다.
+
+:::
+
+:::tip
+#5 번에서 언급한 `showModelVersionListDialog` 를 `showModelVersionListDialogFor{Reason|Subject}` 같은 작명하는 스타일은 개발 표준으로 재시합니다.
+:::
+
+## Documentation
 
 ### Interface
 
@@ -13,6 +61,10 @@ import APITable from "@site/src/components/APITable"
 ### Mixins
 
 #### `connectDialogRootMixin`
+
+##### `showDialog`
+
+##### `showDialogV2`
 
 #### `?eventEmitterMixin`
 
