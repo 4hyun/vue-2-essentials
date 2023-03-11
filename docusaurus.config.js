@@ -94,14 +94,14 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Links",
+            title: "The Guide - Quick Links",
             items: [
               {
                 label: "Architecture",
                 to: "docs/architecture/architecture",
               },
               {
-                label: "Use Case - MLDL 3",
+                label: "Examples",
                 to: "docs/examples/examples",
               },
               {
@@ -111,7 +111,7 @@ const config = {
             ],
           },
           {
-            title: "About Docusaurus",
+            title: "Docusaurus",
             items: [
               {
                 label: "Stack Overflow",
